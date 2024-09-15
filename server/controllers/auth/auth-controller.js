@@ -91,8 +91,6 @@ const loginUser = async (req, res) => {
       },
     });
 
-
-
   } catch (e) {
     console.log(e);
     res.status(500).json({
@@ -134,7 +132,7 @@ const logoutUser = (req, res) => {
 
 
 const authMiddleware = async (req, res, next) => {
-  const authHeader = req.headers["authorization"];
+  const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(" ")[1];
   if (!token)
     return res.status(401).json({
